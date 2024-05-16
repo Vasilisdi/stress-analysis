@@ -1,12 +1,15 @@
-# stress-analysis
-ΑΡΧΕΙΑ  circapp && ellipseappl  
-Αυτά τα 2 αρχεία έχουν κατασκευαστεί για το ζητούμενο της εργασία όπου συγκεκριμένα ζητείται να έχουμε εφαρμογή καθαρού εφελκυσμού και καθαρής κάμψης.
-Αρχικά κρατάω τους ενεργούς βαθμούς ελευθερίας . Κάθε κόμβος έχει 2 β.ε. και στο αριστερό άκρο κρατάω σε όλους τους κόβους εκτός απο έναν κόμβο , 1 μονο ενεργός βαθμό ελευθερίας ,ενω ο άλλος ειναι ανενεργος. Στον εξαιρούμενο κόμβο και οι 2 βαθμοί ελευθερίας ειναι ανενεργοί που σημαίνει ότι δεν δέχεται κίνηση κανένας απο τους 2 . 
-Ενώ για την εφαρμογή της δύναμης και της τάσης θα χρηιμοποιήσουμε άλλη μέθοδο.
-Για την περίπτωση της καθαρής  κάμψης, για κάθε στοιχείο της επιφάνειας του δεξιου ακρου , μοιράζω τις δυνάμεις ώστε να αποδίδουν την επιθυμητή ροπή. Ουσιαστικά χρησιμοποιώ την σχέση , ροπή / αποσταση. Και στην συνέχεια , μοίραζα την παραπάνω δύναμη σε 2 ίσα μέρη και τα αντιστοιχούσα στους 2 βαθμούς ελευθερίας (δηλαδή στους βαθμούς ελευθερίας των κόμβων) της επιφάνειας του συγκεκριμένου στοιχείου .
+# Stress Analysis
+
+## Description
+
+This repository contains two files, `circapp` and `ellipseappl`, which have been created for the purpose of implementing pure tension and pure bending applications.
+
+Initially, the active degrees of freedom are retained. Each node has two degrees of freedom, and at the left end, all nodes except one have only one active degree of freedom, while the other is inactive. In the exceptional node, both degrees of freedom are inactive, meaning that neither of the two accepts motion. For the application of force and stress, a different method will be used.
+
+For the case of pure bending, for each element of the surface of the right end, I distribute the forces to produce the desired moment. Essentially, I use the relationship, moment / distance. Then, I distribute the above force equally into 2 parts and assign them to the 2 degrees of freedom (i.e., to the degrees of freedom of the nodes) of the surface of that specific element.
+
+For the case of pure tension, we follow the same logic, as we want to distribute the force equally to all elements, and then for each surface of each element corresponding to a part of the right end of the specimen, we distribute this force equally to the middle of the 2 nodes that are part of this surface. As a result, the two ends of the specimen will have nodes with half the force applied compared to the force applied to the intermediate nodes.
 
 
 
 
-
-Για την περίπτωση του εφελκυσμού ακολουθούμε την ίδια λογική, καθώς θέλουμε  να μοιράσουμε την δύναμη εξίσου σε όλα τα στοιχεία και στην συνέχεια για κάθε επιφάνεια του κάθε στοιχείο που αντιστοιχεί σε τμήμα του δεξιού άκρου του δοκιμίου , θα μοιράζουμε αυτή την δύναμη στην μέση στους 2 κόμβους που ειναι τμήματα αυτής της επιφάνειας. το αποτέλεσμα θα ειναι τα 2 άκρα του δοκιμίου , να έχουν κόμβους με την μισή δύναμη που εφαρμόζεται σε σχέση με την δύναμη που εφαρμόζεται στους ενδιάμεσους κόμβους .
