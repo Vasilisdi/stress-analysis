@@ -2,14 +2,37 @@
 
 ## Description
 
-This repository contains two files, `circapp` and `ellipseappl`, which have been created for the purpose of implementing pure tension and pure bending applications.
+This repository contains files `circapp` and `ellipseappl` designed for implementing pure tension and pure bending applications, respectively.
 
-Initially, the active degrees of freedom are retained. Each node has two degrees of freedom, and at the left end, all nodes except one have only one active degree of freedom, while the other is inactive. In the exceptional node, both degrees of freedom are inactive, meaning that neither of the two accepts motion. For the application of force and stress, a different method will be used.
+### Tension Implementation:
 
-For the case of pure bending, for each element of the surface of the right end, I distribute the forces to produce the desired moment. Essentially, I use the relationship, moment / distance. Then, I distribute the above force equally into 2 parts and assign them to the 2 degrees of freedom (i.e., to the degrees of freedom of the nodes) of the surface of that specific element.
+In the case of tension, forces are evenly distributed across the elements. Each surface of an element at the right end of the specimen receives an equal share of the force, which is then equally distributed to the two nodes forming that surface. As a result, nodes at the ends of the specimen experience half the force compared to intermediate nodes.
 
-For the case of pure tension, we follow the same logic, as we want to distribute the force equally to all elements, and then for each surface of each element corresponding to a part of the right end of the specimen, we distribute this force equally to the middle of the 2 nodes that are part of this surface. As a result, the two ends of the specimen will have nodes with half the force applied compared to the force applied to the intermediate nodes.
+![Tension Implementation](https://github.com/Vasilisdi/stress-analysis/assets/24864439/78fa486f-0074-4224-82d2-28f171b03579)
 
+### Bending Implementation:
 
+For pure bending, forces are distributed to generate the desired moment on each element's surface at the right end of the specimen. The force is equally divided into two parts, assigned to the degrees of freedom of the nodes forming that surface.
+
+![Bending Implementation](https://github.com/Vasilisdi/stress-analysis/assets/24864439/be1e1195-187c-467e-8be2-dc4c422c7ecb)
+
+### Matrices and Vectors:
+
+- Single Element Surface Matrix:
+  ![Surface Matrix](https://github.com/Vasilisdi/stress-analysis/assets/24864439/539c355c-1bb0-4b16-b688-a302a6ab8fb8)
+
+- Strain Matrix:
+  ![Strain Matrix](https://github.com/Vasilisdi/stress-analysis/assets/24864439/56c96ba8-d18c-48ff-a0d7-580748b1dd23)
+
+- Stress Vector:
+  ![Stress Vector](https://github.com/Vasilisdi/stress-analysis/assets/24864439/6b314317-fb9c-4ff3-bf62-aaf1469d0a82)
+
+### Stress Results:
+
+- Tension Stress Results:
+  ![Tension Stress](https://github.com/Vasilisdi/stress-analysis/assets/24864439/30add36f-6de3-465b-8683-eb2e7caa844e)
+
+- Bending Stress Results:
+  ![Bending Stress](https://github.com/Vasilisdi/stress-analysis/assets/24864439/30add36f-6de3-465b-8683-eb2e7caa844e)
 
 
